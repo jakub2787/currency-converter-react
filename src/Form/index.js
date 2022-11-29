@@ -5,11 +5,12 @@ const Form = () => {
 
   const [amount, setAmount] = useState("");
   const [result, setResult] = useState(null);
-  const [currency, setCurrency] = useState("EUR");
+  const [currency, setCurrency] = useState(currencies[0].short);
 
   const onSelectCurrency = ({ target }) => setCurrency(target.value);
-  const onSelectChange = ({target}) => setAmount(target.value);
+  const onSelectChange = ({ target }) => setAmount(target.value);
 
+  const findCurrency = currencies.find(({ short }) => short === currency);
 
   const onFormSubmit = (event) => {
     event.preventDefault();
@@ -22,14 +23,27 @@ const Form = () => {
           <span className="form__labelText">
             Kwota do przeliczenia:
           </span>
-          <input value={amount} onChange={onSelectChange} className="form__input " type="number" required min="1" step="1" />
+          <input
+            placeholder="Wpisz kwotę w zł"
+            value={amount}
+            onChange={onSelectChange}
+            className="form__input "
+            type="number"
+            required min="1"
+            step="1"
+          />
         </label>
         <p>
           <label className="form__label">
             <span className="form__labelText">
               Waluta:
             </span>
-            <select value={currency.short} onChange={onSelectCurrency} className="form__input" name="Select a currency">
+            <select
+              value={currency.short}
+              onChange={onSelectCurrency}
+              className="form__input"
+              name="Select a currency"
+            >
               {currencies.map((currency) => (
                 <option key={currency.short} value={currency}>{currency.short}</option>
               ))};
@@ -40,7 +54,7 @@ const Form = () => {
         <p>
           <label className="form__label">
             Otrzymasz:
-            <strong value={result}></strong>
+            <strong></strong>
           </label>
         </p>
       </fieldset>

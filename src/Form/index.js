@@ -1,25 +1,26 @@
 import "./style.css";
 import { currencies } from "../currencies";
-import { useState } from "react"
+import { useState } from "react";
 const Form = () => {
 
   const [amount, setAmount] = useState("");
-  const [result, setResult] = useState(null);
+  const [result, setResult] = useState("1");
   const [currency, setCurrency] = useState(currencies[0].short);
 
   const onSelectCurrency = ({ target }) => setCurrency(target.value);
   const onSelectChange = ({ target }) => setAmount(target.value);
 
-    const calculateResult = (ammountExchange, currency) => {
+    const calculateResult = (amount, currency) => {
       const { rate, short } = currencies.find(({ short }) => short === currency);
   
-      setResult((ammountExchange / rate).toFixed(2) + short);
+      setResult((amount / rate).toFixed(2) + short);
     };
-  const onFormSubmit = (event) => {
-    event.preventDefault();
-    calculateResult(amount, currency);
-    setResult("");
-    setAmount("");
+    console.log(calculateResult)
+    const onFormSubmit = (event) => {
+      event.preventDefault();
+      calculateResult(amount, currency);
+      setResult("");
+      setAmount("");
   }
   return (
     <form onSubmit={onFormSubmit} className="form">
@@ -45,22 +46,22 @@ const Form = () => {
               Waluta:
             </span>
             <select
-              value={currency.short}
+              value={currency}
               onChange={onSelectCurrency}
               className="form__input"
-              name="Select a currency"
+              name="currency"
             >
               {currencies.map((currency) => (
-                <option key={currency.short} value={currency}>{currency.name}</option>
+                <option key={currency.short} value={currency.short}>{currency.name}</option>
               ))};
             </select>
           </label>
         </p>
-        <button className="form__button">Przelicz</button>
+        <button onClick={result} className="form__button">Przelicz</button>
         <p>
           <label className="form__label">
             Otrzymasz:
-            <strong >{result}</strong>
+            <strong>{result}</strong>
           </label>
         </p>
       </fieldset>

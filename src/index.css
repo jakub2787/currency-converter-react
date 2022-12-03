@@ -4,12 +4,14 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
 }
-body {
-  max-width: 800px;
-  margin: auto;
-  width: 100%;
+
+#root {
+  min-height: 100vh;
   font-family: 'Lato', sans-serif;
   background-image: url("../src/images/background.jpg");
   background-size: cover;
   overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

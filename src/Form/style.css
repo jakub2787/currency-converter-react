@@ -1,43 +1,57 @@
 .form {
-    padding: 20px;
-}
-.form__fieldset {
-    padding: 30px;
-    background-color:hsl(0, 0%, 95%);
-    border-radius: 2%;
+    background-color:hsl(0, 0%, 90%);
     box-shadow: 5px -5px 28px -16px khaki;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    border: 2px solid hsl(0, 0%, 54%);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
-.form__legend {
-    border: 2px solid hsl(54, 77%, 55%);
-    background-color: hsl(54, 77%, 80%);
-    padding: 10px;
-    border-radius: 10%;
-    font-weight: 700;
+
+.form__header {
+    text-align: center;
+    color: #ffd700;
 }
-.form__label {
-    font-weight: 700;
+
+.form__fieldset { 
+    border: none;
+    padding: 30px;
+    margin: 20px;
 }
+
 .form__button {
-    border-radius: 10%;
+    border-radius: 10px;
     padding: 10px;
-    max-width: 100px;
     font-weight: 700;
-    width: 125px;
-    max-width: 1000px;
-    background-color: hsl(54, 77%, 80%);
-    border: 2px solid hsl(54, 77%, 55%);
+    width: 100%;
+    background-color:#ffd700;
+    border: none;
+    transition: 1s;
 }
+
+.form__button:hover {
+    background-color:hsl(51, 100%, 60%);
+}
+
 .form__input {
     padding: 10px;
-    border-radius: 4px;
-    width: 100%;
-    max-width: 400px;
+    border-radius: 5px;
+    width: 50%;
+    max-width: 470px;
     font-weight: 700;
     background-color:hsl(0, 0%, 90%);
-    border: 1px solid black;   
+    border: 3px solid #ffd700;
+    outline: none;   
 }
+
 .form__labelText {
-    width: 180px;
+    max-width: 200px;
+    width: 50%;    
     display: inline-block;
-    margin-right: 5px;
+}
+
+.form__label {
+    font-weight: 700;
 }

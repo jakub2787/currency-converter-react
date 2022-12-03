@@ -41,9 +41,7 @@ const Form = () => {
         </label>
         <p>
           <label className="form__label">
-            <span className="form__labelText">
-              Waluta:
-            </span>
+            <span className="form__labelText">Waluta:</span>
             <select
               value={currency}
               onChange={onSelectCurrency}

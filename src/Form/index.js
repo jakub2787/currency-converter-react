@@ -23,8 +23,8 @@ const Form = () => {
   }
   return (
     <form onSubmit={onFormSubmit} className="form">
+      <h1 class="form__header">Kalkulator walutowy</h1>
       <fieldset className="form__fieldset">
-        <legend className="form__legend">Kalkulator walut</legend>
         <label className="form__label">
           <span className="form__labelText">
             Kwota do przeliczenia:

@@ -3,7 +3,7 @@
 https://jakub2787.github.io/currency-converter-react/
 
 ## Preview
-![Example screenshot](../src/images/Animation.gif)
+![Animation](https://user-images.githubusercontent.com/116658312/205492027-9bd153d2-7c5d-41b6-ad98-2178c2c24f7c.gif)
 ## Technologies 
 - JAVASCRIPT
 - React.js

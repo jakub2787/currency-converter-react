@@ -1,19 +1,25 @@
 import "./style.css";
 import { currencies } from "../currencies";
 import { useState } from "react";
+import Result from "../Result";
 const Form = () => {
 
   const [amount, setAmount] = useState("");
-  const [result, setResult] = useState(null);
   const [currency, setCurrency] = useState(currencies[0].short);
+  const [result, setResult] = useState(null);
 
   const onSelectCurrency = ({ target }) => setCurrency(target.value);
   const onSelectChange = ({ target }) => setAmount(target.value);
 
   const calculateResult = (amount, currency) => {
-    const { rate, short } = currencies.find(({ short }) => short === currency);
+    const rate = currencies.find(({ short }) => short === currency)
+      .rate;
 
-    setResult((amount / rate).toFixed(2) + short);
+    setResult({
+      sourceAmount: +amount,
+      targetAmount: amount / rate,
+      currency,
+    });
   };
   const onFormSubmit = (event) => {
     event.preventDefault();
@@ -61,10 +67,7 @@ const Form = () => {
         </p>
         <button className="form__button">Przelicz</button>
         <p>
-          <label className="form__label">
-            Otrzymasz:
-            <span>{result}</span>
-          </label>
+          <Result result={result} />
         </p>
       </fieldset>
     </form>

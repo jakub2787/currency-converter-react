@@ -33,7 +33,7 @@ const Form = () => {
       <fieldset className="form__fieldset">
         <label className="form__label">
           <span className="form__labelText">
-            Kwota do przeliczenia:
+            Kwota w zł*:
           </span>
           <input
             placeholder="Wpisz kwotę w zł"

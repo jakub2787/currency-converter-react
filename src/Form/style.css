@@ -1,10 +1,4 @@
 .form {
-    background-color:hsl(0, 0%, 95%);
-    box-shadow: 5px -5px 28px -16px khaki;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 10px;
-    border: 2px solid hsl(0, 0%, 54%);
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -38,7 +32,7 @@
 .form__input {
     padding: 10px;
     border-radius: 5px;
-    width: 50%;
+    width: 70%;
     max-width: 470px;
     font-weight: 700;
     background-color:hsl(0, 0%, 90%);
@@ -47,8 +41,8 @@
 }
 
 .form__labelText {
-    max-width: 200px;
-    width: 50%;    
+    max-width: 30%;
+    width: 300px;
     display: inline-block;
 }
 

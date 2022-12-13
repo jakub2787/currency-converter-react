@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./style.css";
+import { StyledClock } from "./styled";
 
 const Clock = () => {
     const [date, setDate] = useState(new Date());
@@ -24,8 +24,8 @@ const Clock = () => {
     }, []);
 
     return (
-        <span className="clock">Dzisiaj jest {formatedDate}
-        </span>
+        <StyledClock >Dzisiaj jest {formatedDate}
+        </StyledClock>
     )
 }
 export default Clock;

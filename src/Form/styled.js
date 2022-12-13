@@ -51,3 +51,13 @@ export const LabelText = styled.span`
     width: 300px;
     display: inline-block;
 `;
+export const Select = styled.select`
+    padding: 10px;
+    border-radius: 5px;
+    width: 70%;
+    max-width: 470px;
+    font-weight: 700;
+    background-color:hsl(0, 0%, 90%);
+    border: 3px solid #ffd700;
+    outline: none;   
+`;

@@ -1,21 +1,23 @@
-.form {
+import styled from "styled-components";
+
+export const StyledForm = styled.form`
     display: flex;
     flex-direction: column;
     align-items: stretch;
-}
+`;
 
-.form__header {
+export const Header = styled.h1`
     text-align: center;
     color: hsl(51, 100%, 45%);
-}
+`;
 
-.form__fieldset { 
+export const Fieldset = styled.fieldset`
     border: none;
     padding: 30px;
     margin: 20px;
-}
+`;
 
-.form__button {
+export const Button = styled.button`
     border-radius: 10px;
     padding: 10px;
     font-weight: 700;
@@ -23,13 +25,13 @@
     background-color:#ffd700;
     border: none;
     transition: 1s;
-}
 
-.form__button:hover {
-    background-color:hsl(51, 100%, 60%);
-}
+    &:hover {
+        background-color:hsl(51, 100%, 60%);
+    }
+`;
 
-.form__input {
+export const Input = styled.input`
     padding: 10px;
     border-radius: 5px;
     width: 70%;
@@ -38,14 +40,14 @@
     background-color:hsl(0, 0%, 90%);
     border: 3px solid #ffd700;
     outline: none;   
-}
+`;
 
-.form__labelText {
+export const Label = styled.label`
+    font-weight: 700;
+`;
+
+export const LabelText = styled.span`
     max-width: 30%;
     width: 300px;
     display: inline-block;
-}
-
-.form__label {
-    font-weight: 700;
-}
+`;

@@ -1,6 +1,6 @@
 # 💱 Currency-converter-React 
 ## 🕹️ Demo
-[Click here] https://jakub2787.github.io/currency-converter-react/
+[Currency Converter](https://jakub2787.github.io/currency-converter-react/)
 
 ## 📖 Description
 The currency converter exchange PLN into different currencies. Currencies are downloaded from the open API. Type ammount you want to exchange and press "Przelicz".

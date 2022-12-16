@@ -8,7 +8,7 @@ export const StyledForm = styled.form`
 
 export const Header = styled.h1`
     text-align: center;
-    color: hsl(51, 100%, 45%);
+    color: ${({theme}) => theme.color.corn};
 `;
 
 export const Fieldset = styled.fieldset`
@@ -22,12 +22,16 @@ export const Button = styled.button`
     padding: 10px;
     font-weight: 700;
     width: 100%;
-    background-color:#ffd700;
+    background-color:${({theme}) => theme.color.gold};
     border: none;
     transition: 1s;
 
     &:hover {
-        background-color:hsl(51, 100%, 60%);
+        filter: brightness(110%);
+    }
+
+    &:active {
+        filter: brightness(120%);
     }
 `;
 
@@ -37,8 +41,8 @@ export const Input = styled.input`
     width: 70%;
     max-width: 470px;
     font-weight: 700;
-    background-color:hsl(0, 0%, 90%);
-    border: 3px solid #ffd700;
+    background-color: ${({theme}) => theme.color.mercury};
+    border: 3px solid ${({theme}) => theme.color.gold};
     outline: none;   
 `;
 
@@ -51,13 +55,14 @@ export const LabelText = styled.span`
     width: 300px;
     display: inline-block;
 `;
+
 export const Select = styled.select`
     padding: 10px;
     border-radius: 5px;
     width: 70%;
     max-width: 470px;
     font-weight: 700;
-    background-color:hsl(0, 0%, 90%);
-    border: 3px solid #ffd700;
+    background-color: ${({theme}) => theme.color.mercury};
+    border: 3px solid ${({theme}) => theme.color.gold};
     outline: none;   
 `;

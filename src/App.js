@@ -1,8 +1,8 @@
 import Form from "./Form";
 import Container from "./Container";
 import Clock from "./Clock";
-function App() {
 
+function App() {
   return (
     <div className="App">
       <Container>
@@ -11,6 +11,6 @@ function App() {
       </Container> 
     </div>
   )
-
 };
+
 export default App;

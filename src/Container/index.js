@@ -1,7 +1,9 @@
 import { Main } from "./styled";
+
 const Container = ({children}) => (
-    <Main className="main">
+    <Main >
         {children}
     </Main>
 );
+
 export default Container;

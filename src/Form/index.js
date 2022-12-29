@@ -1,33 +1,34 @@
-import { currencies } from "../currencies";
 import { useState } from "react";
-import Result from "../Result";
+import Result from "./Result";
 import { Button, Fieldset, Header, StyledForm, Input, Label, LabelText, Select } from "./styled";
+import { useDate, useRatesData} from "./useRatesData";
 
 const Form = () => {
-
+  
   const [amount, setAmount] = useState("");
-  const [currency, setCurrency] = useState(currencies[0].short);
-  const [result, setResult] = useState(null);
+  const [currency, setCurrency] = useState("EUR");
+  const [result, setResult] = useState("");
+
+  const currenciesData = useRatesData();
 
   const onSelectCurrency = ({ target }) => setCurrency(target.value);
   const onSelectChange = ({ target }) => setAmount(target.value);
 
-  const calculateResult = (amount, currency) => {
-    const rate = currencies.find(({ short }) => short === currency)
-      .rate;
-
+  const calculateResult = () => {
+   const rates = currenciesData[currency];
     setResult({
       sourceAmount: +amount,
-      targetAmount: amount / rate,
+      targetAmount: amount * rates,
       currency,
     });
   };
-  const onFormSubmit = (event) => {
-    event.preventDefault();
-    calculateResult(amount, currency);
-    setAmount("");
 
+  const onFormSubmit = (event) => {
+    calculateResult();
+    event.preventDefault();
+    setAmount("");
   }
+  
   return (
     <StyledForm onSubmit={onFormSubmit}>
       <Header>Kalkulator walutowy</Header>
@@ -49,17 +50,16 @@ const Form = () => {
           <Label>
             <LabelText>Waluta:</LabelText>
             <Select
-              value={currency}
               onChange={onSelectCurrency}
               className="form__input"
               name="currency"
+              value={currency} 
             >
-              {currencies.map((currency) => (
+              {Object.keys(currenciesData).map((currency) => (
                 <option
-                  key={currency.short}
-                  value={currency.short}
+                key={currency}
                 >
-                  {currency.name}
+                  {currency}
                 </option>
               ))};
             </Select>

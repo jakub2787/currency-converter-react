@@ -6,4 +6,7 @@ export const theme = {
         corn: "#e6c300",
         concrete: "#f2f2f2",
     },
+    breakpoint: {
+        mobileMax: 767,
+    },
 };

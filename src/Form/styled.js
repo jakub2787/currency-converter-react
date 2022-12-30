@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Header = styled.h1`
     text-align: center;
-    color: ${({theme}) => theme.color.corn};
+    color: ${({ theme }) => theme.color.corn};
 `;
 
 export const Fieldset = styled.fieldset`
@@ -16,7 +16,7 @@ export const Button = styled.button`
     padding: 10px;
     font-weight: 700;
     width: 100%;
-    background-color:${({theme}) => theme.color.gold};
+    background-color:${({ theme }) => theme.color.gold};
     border: none;
     transition: 1s;
 
@@ -35,8 +35,8 @@ export const Input = styled.input`
     width: 70%;
     max-width: 470px;
     font-weight: 700;
-    background-color: ${({theme}) => theme.color.mercury};
-    border: 3px solid ${({theme}) => theme.color.gold};
+    background-color: ${({ theme }) => theme.color.mercury};
+    border: 3px solid ${({ theme }) => theme.color.gold};
     outline: none;   
 `;
 
@@ -56,8 +56,8 @@ export const Select = styled.select`
     width: 70%;
     max-width: 470px;
     font-weight: 700;
-    background-color: ${({theme}) => theme.color.mercury};
-    border: 3px solid ${({theme}) => theme.color.gold};
+    background-color: ${({ theme }) => theme.color.mercury};
+    border: 3px solid ${({ theme }) => theme.color.gold};
     outline: none;   
 `;
 
@@ -69,5 +69,5 @@ export const StyledDate = styled.p`
 export const StyledError = styled.div`
     font-size: 20px;
     font-weight: 700;
-    color: ${({theme}) => theme.color.brightRed};
+    color: ${({ theme }) => theme.color.brightRed};
 `;

@@ -13,7 +13,7 @@ const Clock = () => {
             hour: "numeric",
             minute: "numeric",
             second: "numeric"
-    });
+        });
 
     return (
         <StyledClock>

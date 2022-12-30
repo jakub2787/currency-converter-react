@@ -6,7 +6,7 @@ export const StyledClock = styled.span`
     align-self: flex-end;
     font-weight: 10px;
 
-    @media (max-width: ${({theme}) => theme.breakpoint.mobileMax}px) {
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         display: flex;
         align-self: center;
     }

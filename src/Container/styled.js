@@ -7,7 +7,7 @@ export const Main = styled.main`
     align-items: center;
     padding: 20px;
     margin: 10px;
-    border: 2px solid ${({theme}) => theme.color.gray};
+    border: 2px solid ${({ theme }) => theme.color.gray};
     border-radius: 10px;
-    background-color: ${({theme}) => theme.color.concrete};
+    background-color: ${({ theme }) => theme.color.concrete};
 `;

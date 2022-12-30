@@ -1,6 +1,16 @@
 import { useState, useEffect } from "react";
 import Result from "./Result";
-import { Button, Fieldset, Header, Input, Label, LabelText, Select } from "./styled";
+import {
+  Header,
+  Fieldset,
+  StyledError,
+  Button,
+  Input,
+  Label,
+  LabelText,
+  Select,
+  StyledDate,
+} from "./styled";
 import { useRatesData } from "./useRatesData";
 import ClipLoader from "react-spinners/ClipLoader";
 
@@ -10,6 +20,7 @@ const Form = () => {
   const [currency, setCurrency] = useState("EUR");
   const [result, setResult] = useState("");
   const [loading, setLoading] = useState(false);
+  const { date, rates, status } = useRatesData();
 
   useEffect(() => {
     setLoading(true)
@@ -22,14 +33,12 @@ const Form = () => {
   const onSelectCurrency = ({ target }) => setCurrency(target.value);
   const onSelectChange = ({ target }) => setAmount(target.value);
 
-  const currenciesData = useRatesData();
-
   const calculateResult = () => {
-    const rates = currenciesData[currency];
+    const exchnageRates = rates[currency];
 
     setResult({
       sourceAmount: +amount,
-      targetAmount: amount * rates,
+      targetAmount: amount * exchnageRates,
       currency,
     });
   };
@@ -45,53 +54,67 @@ const Form = () => {
       <Header>Kalkulator walutowy</Header>
       <Fieldset>
         {
-          loading ?
-            <ClipLoader
-              color={'#ffd700'}
-              loading={loading}
-              size={150}
-              aria-label="Loading Spinner"
-              data-testid="loader"
-            />
-            :
-            <div>
-              <Label>
-                <LabelText>
-                  Kwota w zł*:
-                </LabelText>
-                <Input
-                  placeholder="Wpisz kwotę w zł"
-                  value={amount}
-                  onChange={onSelectChange}
-                  type="number"
-                  required min="1"
-                  step="1"
-                />
-              </Label>
-              <p>
+          status === "error" ? (
+            <StyledError>
+              Ups... coś poszło nie tak😟
+              <br />
+              Sprawdź swoje połączenie z internetem.
+              <br />
+              Jeśli jest stabilne to spróbuj ponownie później.
+            </StyledError>
+          )
+            : status === "success" && loading ?
+              <ClipLoader
+                color={'#ffd700'}
+                loading={loading}
+                size={150}
+                aria-label="Loading Spinner"
+                data-testid="loader"
+              />
+              :
+              <div>
                 <Label>
-                  <LabelText>Waluta:</LabelText>
-                  <Select
-                    onChange={onSelectCurrency}
-                    className="form__input"
-                    name="currency"
-                    value={currency}
-                  >
-                    {Object.keys(currenciesData).map((currency) => (
-                      <option
-                        key={currency}
-                      >
-                        {currency}
-                      </option>
-                    ))};
-                  </Select>
+                  <LabelText>
+                    Kwota w zł*:
+                  </LabelText>
+                  <Input
+                    placeholder="Wpisz kwotę w zł"
+                    value={amount}
+                    onChange={onSelectChange}
+                    type="number"
+                    required min="1"
+                    step="1"
+                  />
                 </Label>
-              </p>
-              <Button>Przelicz</Button>
-              <p>
-                <Result result={result} />
-              </p>
-            </div>
+                <p>
+                  <Label>
+                    <LabelText>Waluta:</LabelText>
+                    <Select
+                      onChange={onSelectCurrency}
+                      className="form__input"
+                      name="currency"
+                      value={currency}
+                    >
+                      {Object.keys(rates || {}).map((currency) => (
+                        <option
+                          key={currency}
+                        >
+                          {currency}
+                        </option>
+                      ))};
+                    </Select>
+                  </Label>
+                </p>
+                <Button>Przelicz</Button>
+                <StyledDate>
+                  Kursy walut pobierane są z Europejskiego Banku Centralnego.
+                  <br />
+                  Aktualne na dzień: <strong>{date}</strong>
+                </StyledDate>
+                <p>
+                  <Result result={result} />
+                </p>
+              </div>
         }
       </Fieldset>
     </form>

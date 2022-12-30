@@ -1,25 +1,34 @@
 import { useEffect, useState } from "react";
-const URL = ("https://api.exchangerate.host/latest?base=PLN");
+const API_URL = ("https://api.exchangerate.host/latest?base=PLN");
 
 export const useRatesData = () => {
-    const [currencyOptions, setCurrencyOptions] = useState([]);
+    const [ratesData, setRatesData] = useState([]);
+
     useEffect(() => {
-        fetch(URL)
+        fetch(API_URL)
             .then(response => {
                 if (!response.ok) {
                     throw new Error(response.statusText);
                 }
-                return response;
+                return response.json();
             })
-            .then(response => response.json())
             .then(response => {
-                setCurrencyOptions(response.rates)
+                setRatesData({
+                    date: response.date,
+                    rates: response.rates,
+                    status: "success",
+                })
             })
-            .catch(error => console.error("Something bad happened!", error))
-            
+            .catch(error => {
+                console.error(error);
+                setRatesData({
+                    status: "error",
+                });
+            })
+
     }, []);
-    
-    return currencyOptions 
+
+    return ratesData
 };
 
 

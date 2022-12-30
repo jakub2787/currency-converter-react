@@ -60,3 +60,14 @@ export const Select = styled.select`
     border: 3px solid ${({theme}) => theme.color.gold};
     outline: none;   
 `;
+
+export const StyledDate = styled.p`
+    text-align: center;
+    font-size: 18px;
+`;
+
+export const StyledError = styled.div`
+    font-size: 20px;
+    font-weight: 700;
+    color: ${({theme}) => theme.color.brightRed};
+`;

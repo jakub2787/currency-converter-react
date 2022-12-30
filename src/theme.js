@@ -5,6 +5,7 @@ export const theme = {
         mercury: "#e6e6e6",
         corn: "#e6c300",
         concrete: "#f2f2f2",
+        brightRed: "#b40006",
     },
     breakpoint: {
         mobileMax: 767,

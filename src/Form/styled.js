@@ -1,11 +1,5 @@
 import styled from "styled-components";
 
-export const StyledForm = styled.form`
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-`;
-
 export const Header = styled.h1`
     text-align: center;
     color: ${({theme}) => theme.color.corn};

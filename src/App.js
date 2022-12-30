@@ -4,12 +4,10 @@ import Clock from "./Clock";
 
 function App() {
   return (
-    <div className="App">
-      <Container>
-        <Clock />
-      <Form />
-      </Container> 
-    </div>
+    <Container>
+      <Clock />
+      <Form /> 
+    </Container>
   )
 };
 

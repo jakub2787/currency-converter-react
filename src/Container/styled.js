@@ -4,6 +4,7 @@ export const Main = styled.main`
     display: flex;
     flex-basis: 700px;
     flex-direction: column;
+    height: 500px;
     align-items: center;
     padding: 20px;
     margin: 10px;

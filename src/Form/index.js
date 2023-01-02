@@ -67,7 +67,7 @@ const Form = () => {
               <ClipLoader
                 color={'#ffd700'}
                 loading={loading}
-                size={150}
+                size={220}
                 aria-label="Loading Spinner"
                 data-testid="loader"
               />

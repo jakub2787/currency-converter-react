@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-const API_URL = ("https://api.exchangerate.host/latest?base=PLN");
+const API_URL = "https://api.exchangerate.host/latest?base=PLN";
 
 export const useRatesData = () => {
     const [ratesData, setRatesData] = useState([]);

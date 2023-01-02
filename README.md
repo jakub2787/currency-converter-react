@@ -6,7 +6,7 @@
 The currency converter exchange PLN into different currencies. Currencies are downloaded from the open API. Type ammount you want to exchange and press "Przelicz".
 
 ## Preview
-![Animation](https://user-images.githubusercontent.com/116658312/205492027-9bd153d2-7c5d-41b6-ad98-2178c2c24f7c.gif)
+![Animation](https://user-images.githubusercontent.com/116658312/210260608-e1bf153d-d80a-430c-bad3-b4988f4bdc2b.gif)
 
 ## Technologies 
 - JAVASCRIPT
